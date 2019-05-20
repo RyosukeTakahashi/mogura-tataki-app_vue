@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <button v-bind:disabled="buttonDisabled" class="start-game" v-on:click="startGame">
+    <button
+      v-bind:disabled="buttonDisabled"
+      class="start-game"
+      v-on:click="startGame"
+    >
       Start Game
     </button>
     <div class="counters-container">
@@ -10,7 +14,11 @@
     </div>
 
     <div>
-      <Moles v-bind:moleData="moles" v-bind:gameActive="gameActive" />
+      <Moles
+        v-bind:moleData="moles"
+        v-bind:gameActive="gameActive"
+        v-on:whack="handleMoleWhack"
+      />
     </div>
   </div>
 </template>
@@ -65,6 +73,10 @@ export default {
     },
     stopTimer: function() {
       clearInterval(this.timerId);
+    },
+    handleMoleWhack: function(moleId) {
+      // eslint-disable-next-line no-console
+      console.log("moleId = ", moleId);
     }
   }
 };
