@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="counters-container">
+      <Counter label="Score: " v-bind:value="score" />
+      <Counter label="High Score: " v-bind:value="highScore" />
+      <Counter label="Timer Left: " v-bind:value="timer" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Counter from "./components/Counter.vue";
 
 export default {
   name: "app",
   components: {
-    HelloWorld
+    Counter
   },
   data: function() {
     return {
@@ -19,9 +22,8 @@ export default {
       highScore: 0,
       timer: 20,
       moles: [false, false, false, false],
-      gameActive: false,
-    }
-
+      gameActive: false
+    };
   }
 };
 </script>
