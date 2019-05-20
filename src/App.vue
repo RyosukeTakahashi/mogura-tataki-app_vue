@@ -61,6 +61,10 @@ export default {
       this.buttonDisabled = false;
       this.stopTimer();
       this.stopMoles();
+      this.updateHighScore();
+    },
+    updateHighScore: function() {
+      this.highScore = Math.max(this.highScore, this.score);
     },
     startTimer: function() {
       this.timerId = setInterval(() => {
