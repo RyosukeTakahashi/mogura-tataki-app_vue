@@ -5,23 +5,29 @@
       <Counter label="High Score: " v-bind:value="highScore" />
       <Counter label="Timer Left: " v-bind:value="timer" />
     </div>
+
+    <div>
+      <Moles v-bind:moleData="moles" v-bind:gameActive="gameActive" />
+    </div>
   </div>
 </template>
 
 <script>
 import Counter from "./components/Counter.vue";
+import Moles from "./components/Moles";
 
 export default {
   name: "app",
   components: {
-    Counter
+    Counter,
+    Moles
   },
   data: function() {
     return {
       score: 0,
       highScore: 0,
       timer: 20,
-      moles: [false, false, false, false],
+      moles: [true, true, false, false],
       gameActive: false
     };
   }
@@ -39,8 +45,7 @@ export default {
 }
 
 .counters-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-
 </style>
