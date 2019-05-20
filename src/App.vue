@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <button v-bind:disabled="buttonDisabled" class="start-game" v-on:click="startGame">
+      Start Game
+    </button>
     <div class="counters-container">
       <Counter label="Score: " v-bind:value="score" />
       <Counter label="High Score: " v-bind:value="highScore" />
@@ -28,8 +31,41 @@ export default {
       highScore: 0,
       timer: 20,
       moles: [true, true, false, false],
-      gameActive: false
+      gameActive: false,
+      buttonDisabled: false
     };
+  },
+  methods: {
+    resetState: function() {
+      this.score = 0;
+      this.timer = 20;
+      this.moles = [false, false, false, false];
+    },
+    startGame: function() {
+      this.buttonDisabled = true;
+      this.resetState();
+      this.gameActive = true;
+      this.startTimer();
+    },
+    endGame: function() {
+      this.gameActive = false;
+      this.buttonDisabled = false;
+      this.stopTimer();
+    },
+    startTimer: function() {
+      this.timerId = setInterval(() => {
+        this.decrementTime();
+      }, 1000);
+    },
+    decrementTime: function() {
+      this.timer--;
+      if (this.timer === 0) {
+        this.endGame();
+      }
+    },
+    stopTimer: function() {
+      clearInterval(this.timerId);
+    }
   }
 };
 </script>
