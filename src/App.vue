@@ -12,6 +12,16 @@ export default {
   name: "app",
   components: {
     HelloWorld
+  },
+  data: function() {
+    return {
+      score: 0,
+      highScore: 0,
+      timer: 20,
+      moles: [false, false, false, false],
+      gameActive: false,
+    }
+
   }
 };
 </script>

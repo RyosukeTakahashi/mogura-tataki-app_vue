@@ -1,29 +1,20 @@
-# mogura-tataki-app_vue
+# Design
 
-## Project setup
-```
-npm install
-```
+## Components
+- Title
+- Start Button
+    - v-on:click='handleStartClick'
+- Counter
+    - Score
+        - Data: This game's score
+    - HighScore
+        - Data: Highest score recorded.
+    - Time left
+        - Data: Time left to play.
+- Moles
+    - Mole
+        - Data : Boolean.
+        - v-on:click='handleMoleClick'
+        
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+     
